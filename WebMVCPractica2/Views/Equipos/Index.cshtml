@@ -1,0 +1,19 @@
+﻿@using wedApi_join.Model;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<tipo_equipo> tipo_Equipos = new List<tipo_equipo>
+    {
+        new tipo_equipo {id_tipo_equipo = 1, descripcion = "Laptop nueva"},
+        new tipo_equipo {id_tipo_equipo = 2, descripcion = "Vieja"},
+        new tipo_equipo {id_tipo_equipo = 3, descripcion = "Casi nueva"}
+    };
+}
+
+@Html.Label("lbldescripcion", "Descripción")
+
+<!--new{Arroba nombre del atributo que se quiere}-->
+@Html.DropDownList("tipo_equipo_id", new SelectList(tipo_Equipos, "id_tipo_equipo", "descripcion"), "Seleccione los campos", new {@class = "form-control"})
+
+<!--Jcombobox-->

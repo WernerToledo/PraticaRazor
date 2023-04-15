@@ -1,0 +1,83 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    IEnumerable<string> strList = new List<string> { "POO", "TW", "MAT3", "FIS1" };
+}
+
+<form>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            @Html.Label("lblNombre","Nombre")
+        </div>
+        <div class="col-sm-4">
+            @Html.TextBox("inpNombre","", new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="form-group row mt-3">
+        <div class="col-sm-2">
+            @Html.Label("lblPass","Password")
+        </div>
+        <div class="col-sm-4">
+            @Html.Password("Password","", new {@class = "form-control"})
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <div class="col-sm-2">
+            @Html.Label("lblGenero","Genero")
+        </div>
+        <div class="col-sm-4">
+            @Html.RadioButton("Genero", "Masculino", true, new {@class = "form-check-input", @id="Masculino"})Masculino
+            @Html.RadioButton("Genero", "Femenino", new {@class = "form-check-input", @id="Femenino"})Femenino
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2">
+            @Html.Label("lblDireccion","Dirección")
+        </div>
+        <div class="col-sm-4">
+            @Html.TextArea("inpDireccion","", new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="form-group row mt-3">
+        <div class="col-sm-2">
+            @Html.Label("lblPastimes","Pasatiempos")
+        </div>
+        <div class="col-sm-4">
+            @Html.CheckBox("Bailando",new{@class="form-check-input"}) Bailar
+            @Html.CheckBox("Correr", true, new{@class="form-check-input"}) Correr
+            @Html.CheckBox("Escalar", new{@class="form-check-input"}) Escalar
+            @Html.CheckBox("Peliculas", new{@class="form-check-input"}) Cinefilo
+        </div>
+    </div>
+
+    <div class="form-group row mt-3">
+        <div class="col-sm-2">
+            @Html.Label("lblCursos","Cursos")
+        </div>
+        <div class="col-sm-4">
+            @Html.DropDownList("ddlCurso", new SelectList(strList, strList.FirstOrDefault()), "--Seleccionar curso ----", new {@class="btn btn-secondary dropdown-toggle"})
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <div class="col-sm-2">
+            @Html.Label("lblConocimientos","Conocimientos")
+        </div>
+        <div class="col-sm-4">
+            @Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{new SelectListItem {Text = "C #", Value = "1"},new SelectListItem {Text = "ASP.NET", Value = "2"},
+                                                                              new SelectListItem {Text = "ASP.NET Core", Value = "3"},
+                                                                              new SelectListItem {Text = "Azure", Value = "4"}
+                                                                              })
+        </div>
+    </div>
+    <hr/>
+
+    <div class="form-group row mt-3 text-center">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Enviar datos</button>
+        </div>
+    </div>
+</form>
